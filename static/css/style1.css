@@ -1,0 +1,71 @@
+.header {
+  text-align: center;
+  font-size: 50px;
+  color: balck;
+  font-family: 'Libre Baskerville', serif;
+  margin-top: 50px;
+}
+
+.bar {
+  width: 50%;
+  margin: auto;
+  height: 20px;
+  background-color: rgb(41, 70, 124);
+  margin-top: 20px;
+  border-radius: 20px;
+}
+.formwrapper {
+  height: 840px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 30px;
+  margin: 50px 22px 0 22px;
+  box-shadow: 0 -12.8px 2.2px rgba(206, 69, 69, 0.034),
+    0 16.7px 5.3px rgba(0, 0, 0, 0.048), 0 -12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+    0 41.8px 33.4px rgba(69, 144, 146, 0.086),
+    0 100px 80px rgba(69, 158, 170, 0.12);
+}
+.column {
+  float: left;
+  width: 33%;
+  padding-left: 100px;
+  padding-right: 60px;
+  padding-top: 40px;
+  padding-bottom: 10px;
+  height: 740px;
+}
+.row {
+  margin-top: 50px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.row:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.labeltag {
+  font-size: 16px;
+}
+.btn {
+  width: 400px !important;
+  margin: auto;
+  margin-left: 550px;
+  margin-bottom: 300px;
+  background-color: rgb(26, 48, 92);
+}
+
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
+  .header {
+    font-size: 40px;
+  }
+  .btn {
+    width: 200px;
+    margin-left: 65px;
+  }
+}

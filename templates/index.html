@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Predict Medicine</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style1.css') }}">
+  </head>
+
+  <body>
+    <div class="main">
+      <h1 class="header">Predict Medicine</h1>
+      <div class="bar"></div>
+
+      <!-- Your earlier form
+      <div class="form">
+       
+        <form action="{{ url_for('predict')}}" method="post">
+          <input type="text" name="m1" placeholder="m1" required="required" />
+
+          <input type="text" name="m2" placeholder="m2" required="required" />
+
+          <input type="text" name="m3" placeholder="m3" required="required" />
+
+          <input type="text" name="m4" placeholder="m4" required="required" />
+
+          <input type="text" name="m5" placeholder="m5" required="required" />
+
+          <input type="text" name="m6" placeholder="m6" required="required" />
+
+          <input type="text" name="m7" placeholder="m7" required="required" />
+
+          <input type="text" name="m8" placeholder="m8" required="required" />
+
+          <input type="text" name="m9" placeholder="m9" required="required" />
+
+          <input type="text" name="m10" placeholder="m10" required="required" />
+
+          <input type="text" name="m11" placeholder="m11" required="required" />
+
+          <input type="text" name="m12" placeholder="m12" required="required" />
+
+          <input type="text" name="m13" placeholder="m13" required="required" />
+
+          <input type="text" name="m14" placeholder="m14" required="required" />
+
+          <input type="text" name="m15" placeholder="m15" required="required" />
+
+          <input type="text" name="m16" placeholder="m16" required="required" />
+
+          <input type="text" name="m17" placeholder="m17" required="required" />
+
+          <input type="text" name="m18" placeholder="m18" required="required" />
+
+          <input type="text" name="m19" placeholder="m19" required="required" />
+
+          <input type="text" name="m20" placeholder="m20" required="required" />
+
+          <input type="text" name="m21" placeholder="m21" required="required" />
+
+          <input type="text" name="m22" placeholder="m21" required="required" />
+
+          <input type="text" name="m23" placeholder="m21" required="required" />
+
+          <input type="text" name="m24" placeholder="m21" required="required" />
+
+          <input type="text" name="m25" placeholder="m21" required="required" />
+
+          <input type="text" name="m26" placeholder="m21" required="required" />
+
+          <input type="text" name="m27" placeholder="m21" required="required" />
+
+          <button type="submit" class="btn btn-primary btn-block btn-large">
+            Predict
+          </button>
+        </form>   
+      </div>
+      -->
+      <div class="formwrapper">
+        <form action="{{ url_for('predict')}}" method="post">
+          <!-- Main container for the 3 columns -->
+          <div class="row">
+            <!--Individual columns-->
+            <div class="column">
+              <!-- Each form field -->
+              <div class="form-group">
+
+
+
+
+
+                <label for="exampleInputEmail1" class="labeltag"
+                  >Serial No.</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  name="m1"
+                  placeholder="Type Here"
+                  required="required"
+                />
+              </div>
+              <!--Each form field end -->
+
+              <div class="form-group">
+                <label for="exampleInputEmail1" class="labeltag"
+                  >Encounter ID</label
+                >
+                <!-- Add select - option tag here after label tag and remove the input tag -->
+                <input
+                  type="text"
+                  class="form-control"
+                  name="m2"
+                  placeholder="Type Here"
+                  required="required"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="exampleInputEmail1" class="labeltag"
+                  >Patient Number</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  name="m3"
+                  placeholder="Type Here"
+                  required="required"
+                />
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1" class="labeltag"
+                  >Race</label
+                >
+                <select name="m4" id="m4" required="required" class="form-control">
+        <option value="0">'AfricanAmerican'</option>
+        <option value="1">'Asian'</option>
+        <option value="2">'Caucasian'</option>
+        <option value="3">'Hispanic'</option>
+        <option value="4">'Not Specified'</option>
+        <option value="5">'Other'</option>
+        </select>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1" class="labeltag"
+                  >Gender</label
+                >
+                <select name="m5" id="m5" required="required" class="form-control">
+                  <option value="0">'Female'</option>
+                  <option value="1">'Male'</option>
+                  <option value="2">'Unknown/Invalid'</option>
+                  </select>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1" class="labeltag"
+                  >Age Group</label
+                >
+                <select name="m6" id="m6" required="required" class="form-control">
+                  <option value="0">'[0-10)'</option>
+                  <option value="0">'[10-20)'</option>
+                  <option value="10">'[20-30)'</option>
+                  <option value="1">'[30-40)'</option>
+                  <option value="10">'[40-50)'</option>
+                  <option value="20">'[50-60)'</option>
+                  <option value="2">'[60-70)'</option>
+                  <option value="20">'[70-80)'</option>
+                  <option value="30">'[80-90)'</option>
+                  <option value="3">'[90-100)'</option>
+                  </select>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1" class="labeltag"
+                  >Admission Type ID</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  name="m7"
+                  placeholder="Type Here"
+                  required="required"
+                />
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1" class="labeltag"
+                  >Discharge Diposition ID</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  name="m8"
+                  placeholder="Type Here"
+                  required="required"
+                />
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1" class="labeltag"
+                  >Admission Source ID</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  name="m9"
+                  placeholder="Type Here"
+                  required="required"
+                />
+              </div>
+            </div>
+            <!-- Second Column-->
+            <div class="column">
+              <div class="form-group">
+                <label for="exampleInputEmail1" class="labeltag"
+                  >Time of Stay</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  name="m10"
+                  placeholder="Type Here"
+                  required="required"
+                />
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1" class="labeltag"
+                  >Payer Code</label
+                >
+                <select name="m11" id="m11" required="required" class="form-control">
+                  <option value="0">'BC'</option>
+                  <option value="1">'CH'</option>
+                  <option value="2">'CM'</option>
+                  <option value="3">'CP'</option>
+                  <option value="4">'DM'</option>
+                  <option value="5">'FR'</option>
+                  <option value="6">'HM'</option>
+                  <option value="7">'MC'</option>
+                  <option value="8">'MD'</option>
+                  <option value="9">'MP'</option>
+                  <option value="10">'Not Specified'</option>
+                  <option value="11">'OG'</option>
+                  <option value="12">'OT'</option>
+                  <option value="13">'PO'</option>
+                  <option value="14">'SI'</option>
+                  <option value="15">'SP'</option>
+                  <option value="16">'UN'</option>
+                  <option value="17">'WC'</option>
+          </select>
+              </div>
+
+              <div class="form-group">
+                <label for="exampleInputEmail1" class="labeltag"
+                  >Medical Speciality</label
+                >
+                <select name="m12" id="m12" required="required" class="form-control">
+                  <option value="0">AllergyandImmunology</option>
+                  <option value="1">Anesthesiology </option>
+                  <option value="2">Anesthesiology-Pediatric</option>
+                  <option value="3">Cardiology</option>
+                  <option value="4">Cardiology-Pediatric</option>
+                  <option value="5">DCPTEAM</option>
+                  <option value="6">Dentistry</option>
+                  <option value="7">Dermatology</option>
+                  <option value="8">Emergency/Trauma</option>
+                  <option value="9">Endocrinology</option>
+                  <option value="10">Endocrinology-Metabolism</option>
+                  <option value="11">Family/GeneralPractice</option>
+                  <option value="12">Gastroenterology</option>
+                  <option value="13">Gynecology</option>
+                  <option value="14">Hematology</option>
+                  <option value="15">Hematology/Oncology</option>
+                  <option value="16">Hospitalist</option>
+                  <option value="17">InfectiousDiseases</option>
+                  <option value="18">InternalMedicine</option>
+                  <option value="19">Nephrology</option>
+                  <option value="20">Neurology</option>
+                  <option value="21">Neurophysiology</option>
+                  <option value="22">No Speciality</option>
+                  <option value="23">Obsterics&Gynecology-GynecologicOnco</option>
+                  <option value="24">Obstetrics</option>
+                  <option value="25">ObstetricsandGynecology</option>
+                  <option value="26">Oncology</option>
+                  <option value="27">Ophthalmology</option>
+                  <option value="28">Orthopedics</option>
+                  <option value="29">Orthopedics-Reconstructive</option>
+                  <option value="30">Osteopath</option>
+                  <option value="31">Otolaryngology</option>
+                  <option value="32">OutreachServices</option>
+                  <option value="33">Pathology</option>
+                  <option value="34">Pediatrics</option>
+                  <option value="35">Pediatrics-AllergyandImmunology</option>
+                  <option value="36">Pediatrics-CriticalCare</option>
+                  <option value="37">Pediatrics-EmergencyMedicine</option>
+                  <option value="38">Pediatrics-Endocrinology</option>
+                  <option value="39">Pediatrics-Hematology-Oncology</option>
+                  <option value="40">Pediatrics-InfectiousDiseases</option>
+                  <option value="41">Pediatrics-Neurology</option>
+                  <option value="42">Pediatrics-Pulmonology</option>
+                  <option value="43">Perinatology</option>
+                  <option value="44">PhysicalMedicineandRehabilitation</option>
+                  <option value="45">PhysicianNotFound</option>
+                  <option value="46">Podiatry</option>
+                  <option value="47">Proctology</option>
+                  <option value="48">Psychiatry</option>
+                  <option value="49">Psychiatry-Addictive</option>
+                  <option value="50">Psychiatry-Child/Adolescent</option>
+                  <option value="51">Psychology</option>
+                  <option value="52">Pulmonology</option>
+                  <option value="53">Radiologist</option>
+                  <option value="54">Radiology</option>
+                  <option value="55">Resident</option>
+                  <option value="56">Rheumatology</option>
+                  <option value="57">Speech</option>
+                  <option value="58">SportsMedicine</option>
+                  <option value="59">Surgeon</option>
+                  <option value="60">Surgery-Cardiovascular</option>
+                  <option value="61">Surgery-Cardiovascular/Thoracic</option>
+                  <option value="62">Surgery-Colon&Rectal</option>
+                  <option value="63">Surgery-General</option>
+                  <option value="64">Surgery-Maxillofacial</option>
+                  <option value="65">Surgery-Neuro</option>
+                  <option value="66">Surgery-Pediatric</option>
+                  <option value="67">Surgery-Plastic</option>
+                  <option value="68">Surgery-PlasticwithinHeadandNeck</option>
+                  <option value="69">Surgery-Thoracic</option>
+                  <option value="70">Surgery-Vascular</option>
+                  <option value="71">SurgicalSpecialty</option>
+                  <option value="72">Urology</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="exampleInputEmail1" class="labeltag"
+                  >No. of Lab Procedured</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  name="m13"
+                  placeholder="Type Here"
+                  required="required"
+                />
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1" class="labeltag"
+                  >No. of Procedures</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  name="m14"
+                  placeholder="Type Here"
+                  required="required"
+                />
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1" class="labeltag"
+                  >Number of Medications</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  name="m15"
+                  placeholder="Type Here"
+                  required="required"
+                />
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1" class="labeltag"
+                  >Number of Outpatient</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  name="m16"
+                  placeholder="Type Here"
+                  required="required"
+                />
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1" class="labeltag"
+                  >Number of Emergency</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  name="m17"
+                  placeholder="Type Here"
+                  required="required"
+                />
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1" class="labeltag"
+                  >Number of Inpatient</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  name="m18"
+                  placeholder="Type Here"
+                  required="required"
+                />
+              </div>
+            </div>
+            <!-- Third Column-->
+            <div class="column">
+              <div class="form-group">
+                <label for="exampleInputEmail1" class="labeltag"
+                  >Diagnosis 1</label
+                >
+                <select name="m19" id="m19" required="required" class="form-control">
+                  <option value="385">'732'</option>
+                  <option value="243">'733'</option>
+                  <option value="386">'734'</option>
+                  <option value="244">'735'</option>
+                  <option value="388">'736'</option>
+                  <option value="245">'737'</option>
+                  <option value="389">'738'</option>
+                  <option value="246">'745'</option>
+                  <option value="39">'746'</option>
+                  <option value="247">'747'</option>
+                  <option value="391">'75'</option>
+                  <option value="248">'751'</option>
+                  <option value="394">'753'</option>
+                  <option value="249">'756'</option>
+                  <option value="395">'759'</option>
+                  <option value="250">'78'</option>
+                  <option value="396">'780'</option>
+                  <option value="251">'781'</option>
+                  <option value="397">'782'</option>
+                  <option value="252">'783'</option>
+                  <option value="398">'784'</option>
+                  <option value="253">'785'</option>
+                  <option value="401">'786'</option>
+                  <option value="254">'787'</option>
+                  <option value="402">'788'</option>
+                  <option value="255">'789'</option>
+                  <option value="403">'79'</option>
+                  <option value="256">'790'</option>
+                  <option value="404">'791'</option>
+                  <option value="257">'792'</option>
+                  <option value="405">'793'</option>
+                  <option value="258">'794'</option>
+                  <option value="41">'795'</option>
+                  <option value="259">'796'</option>
+                  <option value="410">'797'</option>
+                  <option value="260">'799'</option>
+                  <option value="411">'8'</option>
+                  <option value="261">'800'</option>
+                  <option value="412">'801'</option>
+                  <option value="262">'802'</option>
+                  <option value="413">'803'</option>
+                  <option value="263">'804'</option>
+                  <option value="414">'805'</option>
+                  <option value="264">'806'</option>
+                  <option value="415">'807'</option>
+                  <option value="265">'808'</option>
+                  <option value="416">'810'</option>
+                  <option value="266">'812'</option>
+                  <option value="417">'813'</option>
+                  <option value="267">'814'</option>
+                  <option value="42">'815'</option>
+                  <option value="268">'816'</option>
+                  <option value="420">'817'</option>
+                  <option value="269">'82'</option>
+                  <option value="421">'820'</option>
+                  <option value="270">'821'</option>
+                  <option value="422">'822'</option>
+                  <option value="271">'823'</option>
+                  <option value="423">'824'</option>
+                  <option value="272">'825'</option>
+                  <option value="424">'826'</option>
+                  <option value="273">'827'</option>
+                  <option value="425">'831'</option>
+                  <option value="274">'832'</option>
+                  <option value="426">'833'</option>
+                  <option value="275">'834'</option>
+                  <option value="427">'835'</option>
+                  <option value="276">'836'</option>
+                  <option value="428">'837'</option>
+                  <option value="277">'838'</option>
+                  <option value="429">'839'</option>
+                  <option value="278">'84'</option>
+                  <option value="430">'840'</option>
+                  <option value="279">'842'</option>
+                  <option value="431">'843'</option>
+                  <option value="280">'844'</option>
+                  <option value="432">'845'</option>
+                  <option value="281">'846'</option>
+                  <option value="433">'847'</option>
+                  <option value="282">'848'</option>
+                  <option value="434">'850'</option>
+                  <option value="283">'851'</option>
+                  <option value="435">'852'</option>
+                  <option value="284">'853'</option>
+                  <option value="436">'854'</option>
+                  <option value="285">'860'</option>
+                  <option value="437">'861'</option>
+                  <option value="286">'862'</option>
+                  <option value="438">'863'</option>
+                  <option value="287">'864'</option>
+                  <option value="440">'865'</option>
+                  <option value="288">'866'</option>
+                  <option value="441">'867'</option>
+                  <option value="289">'868'</option>
+                  <option value="442">'870'</option>
+                  <option value="290">'871'</option>
+                  <option value="443">'873'</option>
+                  <option value="291">'875'</option>
+                  <option value="444">'878'</option>
+                  <option value="292">'879'</option>
+                  <option value="445">'88'</option>
+                  <option value="293">'880'</option>
+                  <option value="446">'881'</option>
+                  <option value="294">'882'</option>
+                  <option value="447">'883'</option>
+                  <option value="295">'885'</option>
+                  <option value="448">'886'</option>
+                  <option value="296">'890'</option>
+                  <option value="451">'891'</option>
+                  <option value="297">'892'</option>
+                  <option value="452">'893'</option>
+                  <option value="298">'895'</option>
+                  <option value="453">'897'</option>
+                  <option value="299">'9'</option>
+                  <option value="454">'903'</option>
+                  <option value="300">'904'</option>
+                  <option value="455">'906'</option>
+                  <option value="301">'911'</option>
+                  <option value="456">'913'</option>
+                  <option value="302">'914'</option>
+                  <option value="457">'915'</option>
+                  <option value="303">'916'</option>
+                  <option value="458">'917'</option>
+                  <option value="304">'919'</option>
+                  <option value="459">'920'</option>
+                  <option value="305">'921'</option>
+                  <option value="461">'922'</option>
+                  <option value="306">'923'</option>
+                  <option value="462">'924'</option>
+                  <option value="307">'928'</option>
+                  <option value="463">'933'</option>
+                  <option value="308">'934'</option>
+                  <option value="464">'935'</option>
+                  <option value="309">'936'</option>
+                  <option value="465">'939'</option>
+                  <option value="310">'94'</option>
+                  <option value="466">'941'</option>
+                  <option value="311">'942'</option>
+                  <option value="47">'944'</option>
+                  <option value="312">'945'</option>
+                  <option value="470">'952'</option>
+                  <option value="313">'955'</option>
+                  <option value="471">'957'</option>
+                  <option value="314">'958'</option>
+                  <option value="473">'959'</option>
+                  <option value="315">'962'</option>
+                  <option value="474">'963'</option>
+                  <option value="316">'964'</option>
+                  <option value="475">'965'</option>
+                  <option value="317">'966'</option>
+                  <option value="477">'967'</option>
+                  <option value="318">'968'</option>
+                  <option value="478">'969'</option>
+                  <option value="319">'97'</option>
+                  <option value="48">'970'</option>
+                  <option value="320">'971'</option>
+                  <option value="480">'972'</option>
+                  <option value="321">'973'</option>
+                  <option value="481">'974'</option>
+                  <option value="322">'975'</option>
+                  <option value="482">'976'</option>
+                  <option value="323">'977'</option>
+                  <option value="483">'98'</option>
+                  <option value="324">'980'</option>
+                  <option value="485">'982'</option>
+                  <option value="325">'983'</option>
+                  <option value="486">'986'</option>
+                  <option value="326">'987'</option>
+                  <option value="487">'988'</option>
+                  <option value="327">'989'</option>
+                  <option value="49">'990'</option>
+                  <option value="328">'991'</option>
+                  <option value="490">'992'</option>
+                  <option value="329">'994'</option>
+                  <option value="491">'995'</option>
+                  <option value="330">'996'</option>
+                  <option value="492">'997'</option>
+                  <option value="331">'998'</option>
+                  <option value="493">'999'</option>
+                  <option value="332">'E909'</option>
+                  <option value="494">'Not Specified'</option>
+                  <option value="333">'V07'</option>
+                  <option value="495">'V25'</option>
+                  <option value="334">'V26'</option>
+                  <option value="496">'V43'</option>
+                  <option value="335">'V45'</option>
+                  <option value="5">'V51'</option>
+                  <option value="336">'V53'</option>
+                  <option value="500">'V54'</option>
+                  <option value="337">'V55'</option>
+                  <option value="501">'V56'</option>
+                  <option value="338">'V57'</option>
+                  <option value="506">'V58'</option>
+                  <option value="339">'V60'</option>
+                  <option value="507">'V63'</option>
+                  <option value="340">'V66'</option>
+                  <option value="508">'V67'</option>
+                  <option value="341">'V70'</option>
+                  <option value="510">'V71'</option>
+                  <option value="276">'276'</option>
+
+          </select>
+          
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1" class="labeltag"
+                  >Diagnosis 2</label
+                >
+                <select name="m20" id="m20" required="required" class="form-control">
+                  <option value="250.01">'250.01'</option>
+                  <option value="425">'826'</option>
+                  <option value="259">'831'</option>
+                  <option value="426">'832'</option>
+                  <option value="260">'833'</option>
+                  <option value="427">'836'</option>
+                  <option value="261">'837'</option>
+                  <option value="428">'840'</option>
+                  <option value="262">'842'</option>
+                  <option value="429">'843'</option>
+                  <option value="263">'844'</option>
+                  <option value="430">'845'</option>
+                  <option value="264">'846'</option>
+                  <option value="431">'847'</option>
+                  <option value="265">'850'</option>
+                  <option value="432">'851'</option>
+                  <option value="266">'852'</option>
+                  <option value="433">'853'</option>
+                  <option value="267">'860'</option>
+                  <option value="434">'861'</option>
+                  <option value="268">'862'</option>
+                  <option value="435">'863'</option>
+                  <option value="269">'864'</option>
+                  <option value="436">'865'</option>
+                  <option value="270">'866'</option>
+                  <option value="437">'867'</option>
+                  <option value="271">'868'</option>
+                  <option value="438">'869'</option>
+                  <option value="272">'870'</option>
+                  <option value="440">'871'</option>
+                  <option value="273">'872'</option>
+                  <option value="441">'873'</option>
+                  <option value="274">'879'</option>
+                  <option value="442">'88'</option>
+                  <option value="275">'880'</option>
+                  <option value="443">'881'</option>
+                  <option value="276">'882'</option>
+                  <option value="444">'883'</option>
+                  <option value="277">'884'</option>
+                  <option value="446">'891'</option>
+                  <option value="278">'892'</option>
+                  <option value="447">'893'</option>
+                  <option value="279">'894'</option>
+                  <option value="448">'9'</option>
+                  <option value="280">'905'</option>
+                  <option value="451">'906'</option>
+                  <option value="281">'907'</option>
+                  <option value="452">'908'</option>
+                  <option value="282">'909'</option>
+                  <option value="453">'910'</option>
+                  <option value="283">'911'</option>
+                  <option value="454">'912'</option>
+                  <option value="284">'913'</option>
+                  <option value="455">'915'</option>
+                  <option value="285">'916'</option>
+                  <option value="456">'917'</option>
+                  <option value="286">'918'</option>
+                  <option value="457">'919'</option>
+                  <option value="287">'920'</option>
+                  <option value="458">'921'</option>
+                  <option value="288">'922'</option>
+                  <option value="459">'923'</option>
+                  <option value="289">'924'</option>
+                  <option value="46">'927'</option>
+                  <option value="290">'933'</option>
+                  <option value="460">'934'</option>
+                  <option value="291">'94'</option>
+                  <option value="461">'942'</option>
+                  <option value="292">'944'</option>
+                  <option value="462">'945'</option>
+                  <option value="293">'947'</option>
+                  <option value="463">'948'</option>
+                  <option value="294">'952'</option>
+                  <option value="464">'953'</option>
+                  <option value="295">'955'</option>
+                  <option value="465">'958'</option>
+                  <option value="296">'959'</option>
+                  <option value="466">'96'</option>
+                  <option value="297">'962'</option>
+                  <option value="470">'963'</option>
+                  <option value="298">'965'</option>
+                  <option value="472">'967'</option>
+                  <option value="299">'968'</option>
+                  <option value="473">'969'</option>
+                  <option value="300">'972'</option>
+                  <option value="474">'974'</option>
+                  <option value="301">'975'</option>
+                  <option value="475">'977'</option>
+                  <option value="302">'980'</option>
+                  <option value="477">'987'</option>
+                  <option value="303">'989'</option>
+                  <option value="478">'99'</option>
+                  <option value="304">'990'</option>
+                  <option value="480">'991'</option>
+                  <option value="305">'992'</option>
+                  <option value="481">'994'</option>
+                  <option value="306">'995'</option>
+                  <option value="482">'996'</option>
+                  <option value="307">'997'</option>
+                  <option value="483">'998'</option>
+                  <option value="308">'999'</option>
+                  <option value="484">'E812'</option>
+                  <option value="309">'E813'</option>
+                  <option value="485">'E814'</option>
+                  <option value="310">'E816'</option>
+                  <option value="486">'E817'</option>
+                  <option value="311">'E818'</option>
+                  <option value="487">'E819'</option>
+                  <option value="312">'E821'</option>
+                  <option value="490">'E826'</option>
+                  <option value="313">'E829'</option>
+                  <option value="491">'E849'</option>
+                  <option value="314">'E850'</option>
+                  <option value="492">'E853'</option>
+                  <option value="315">'E854'</option>
+                  <option value="493">'E858'</option>
+                  <option value="316">'E868'</option>
+                  <option value="494">'E870'</option>
+                  <option value="317">'E878'</option>
+                  <option value="495">'E879'</option>
+                  <option value="318">'E880'</option>
+                  <option value="496">'E881'</option>
+                  <option value="319">'E882'</option>
+                  <option value="5">'E883'</option>
+                  <option value="320">'E884'</option>
+                  <option value="500">'E885'</option>
+                  <option value="321">'E887'</option>
+                  <option value="501">'E888'</option>
+                  <option value="322">'E890'</option>
+                  <option value="506">'E900'</option>
+                  <option value="323">'E905'</option>
+                  <option value="507">'E906'</option>
+                  <option value="324">'E915'</option>
+                  <option value="508">'E916'</option>
+                  <option value="325">'E917'</option>
+                  <option value="510">'E918'</option>
+                  <option value="326">'E919'</option>
+                  <option value="511">'E924'</option>
+                  <option value="327">'E927'</option>
+                  <option value="512">'E928'</option>
+                  <option value="328">'E929'</option>
+                  <option value="513">'E930'</option>
+                  <option value="329">'E931'</option>
+                  <option value="514">'E932'</option>
+                  <option value="330">'E933'</option>
+                  <option value="515">'E934'</option>
+                  <option value="331">'E935'</option>
+                  <option value="516">'E936'</option>
+                  <option value="332">'E937'</option>
+                  <option value="517">'E938'</option>
+                  <option value="333">'E939'</option>
+                  <option value="518">'E941'</option>
+                  <option value="334">'E942'</option>
+                  <option value="519">'E944'</option>
+                  <option value="335">'E945'</option>
+                  <option value="52">'E947'</option>
+                  <option value="336">'E950'</option>
+                  <option value="520">'E965'</option>
+                  <option value="337">'E968'</option>
+                  <option value="521">'E980'</option>
+                  <option value="338">'Not Specified'</option>
+                  <option value="522">'V02'</option>
+                  <option value="339">'V03'</option>
+                  <option value="523">'V08'</option>
+                  <option value="340">'V09'</option>
+                  <option value="524">'V10'</option>
+                  <option value="341">'V11'</option>
+                  <option value="527">'V12'</option>
+                  <option value="342">'V13'</option>
+                  <option value="528">'V14'</option>
+                  <option value="343">'V15'</option>
+                  <option value="529">'V16'</option>
+                  <option value="344">'V17'</option>
+                  <option value="53">'V18'</option>
+                  <option value="345">'V23'</option>
+                  <option value="530">'V25'</option>
+                  <option value="346">'V42'</option>
+                  <option value="531">'V43'</option>
+                  <option value="347">'V44'</option>
+                  <option value="532">'V45'</option>
+                  <option value="348">'V46'</option>
+                  <option value="533">'V49'</option>
+                  <option value="349">'V50'</option>
+                  <option value="534">'V53'</option>
+                  <option value="350">'V54'</option>
+                  <option value="535">'V55'</option>
+                  <option value="351">'V57'</option>
+                  <option value="536">'V58'</option>
+                  <option value="352">'V60'</option>
+                  <option value="537">'V61'</option>
+                  <option value="353">'V62'</option>
+                  <option value="54">'V63'</option>
+                  <option value="354">'V64'</option>
+                  <option value="540">'V65'</option>
+                  <option value="355">'V66'</option>
+                  <option value="542">'V69'</option>
+                  <option value="356">'V70'</option>
+                  <option value="543">'V72'</option>
+                  <option value="357">'V85'</option>
+                  <option value="550">'V86'</option>
+                  </select>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1" class="labeltag"
+                  >Diagnosis 3</label
+                >
+                <select name="m21" id="m21" required="required" class="form-control">
+                  <option value="255">'255'</option>
+                  <option value="440">'864'</option>
+                  <option value="280">'865'</option>
+                  <option value="441">'866'</option>
+                  <option value="281">'867'</option>
+                  <option value="442">'868'</option>
+                  <option value="282">'870'</option>
+                  <option value="443">'871'</option>
+                  <option value="283">'872'</option>
+                  <option value="444">'873'</option>
+                  <option value="284">'875'</option>
+                  <option value="445">'876'</option>
+                  <option value="285">'877'</option>
+                  <option value="446">'879'</option>
+                  <option value="286">'88'</option>
+                  <option value="447">'880'</option>
+                  <option value="287">'881'</option>
+                  <option value="448">'882'</option>
+                  <option value="288">'883'</option>
+                  <option value="451">'884'</option>
+                  <option value="289">'890'</option>
+                  <option value="452">'891'</option>
+                  <option value="290">'892'</option>
+                  <option value="453">'893'</option>
+                  <option value="291">'9'</option>
+                  <option value="454">'905'</option>
+                  <option value="292">'906'</option>
+                  <option value="455">'907'</option>
+                  <option value="293">'908'</option>
+                  <option value="456">'909'</option>
+                  <option value="294">'910'</option>
+                  <option value="457">'911'</option>
+                  <option value="295">'912'</option>
+                  <option value="458">'913'</option>
+                  <option value="296">'915'</option>
+                  <option value="459">'916'</option>
+                  <option value="297">'917'</option>
+                  <option value="460">'918'</option>
+                  <option value="298">'919'</option>
+                  <option value="461">'920'</option>
+                  <option value="299">'921'</option>
+                  <option value="462">'922'</option>
+                  <option value="300">'923'</option>
+                  <option value="463">'924'</option>
+                  <option value="301">'928'</option>
+                  <option value="464">'930'</option>
+                  <option value="302">'933'</option>
+                  <option value="465">'934'</option>
+                  <option value="303">'935'</option>
+                  <option value="466">'94'</option>
+                  <option value="304">'942'</option>
+                  <option value="47">'943'</option>
+                  <option value="305">'944'</option>
+                  <option value="470">'945'</option>
+                  <option value="306">'948'</option>
+                  <option value="472">'951'</option>
+                  <option value="307">'952'</option>
+                  <option value="473">'953'</option>
+                  <option value="308">'955'</option>
+                  <option value="475">'956'</option>
+                  <option value="309">'958'</option>
+                  <option value="477">'959'</option>
+                  <option value="310">'962'</option>
+                  <option value="478">'965'</option>
+                  <option value="311">'966'</option>
+                  <option value="480">'967'</option>
+                  <option value="312">'969'</option>
+                  <option value="481">'970'</option>
+                  <option value="313">'971'</option>
+                  <option value="482">'972'</option>
+                  <option value="314">'980'</option>
+                  <option value="483">'987'</option>
+                  <option value="315">'989'</option>
+                  <option value="484">'991'</option>
+                  <option value="316">'992'</option>
+                  <option value="485">'995'</option>
+                  <option value="317">'996'</option>
+                  <option value="486">'997'</option>
+                  <option value="318">'998'</option>
+                  <option value="487">'999'</option>
+                  <option value="319">'E812'</option>
+                  <option value="49">'E813'</option>
+                  <option value="320">'E815'</option>
+                  <option value="490">'E816'</option>
+                  <option value="321">'E817'</option>
+                  <option value="491">'E818'</option>
+                  <option value="322">'E819'</option>
+                  <option value="492">'E822'</option>
+                  <option value="323">'E825'</option>
+                  <option value="493">'E826'</option>
+                  <option value="324">'E828'</option>
+                  <option value="494">'E849'</option>
+                  <option value="325">'E850'</option>
+                  <option value="495">'E852'</option>
+                  <option value="326">'E853'</option>
+                  <option value="496">'E854'</option>
+                  <option value="327">'E855'</option>
+                  <option value="5">'E858'</option>
+                  <option value="328">'E861'</option>
+                  <option value="500">'E864'</option>
+                  <option value="329">'E865'</option>
+                  <option value="501">'E870'</option>
+                  <option value="330">'E876'</option>
+                  <option value="506">'E878'</option>
+                  <option value="331">'E879'</option>
+                  <option value="507">'E880'</option>
+                  <option value="332">'E881'</option>
+                  <option value="508">'E882'</option>
+                  <option value="333">'E883'</option>
+                  <option value="510">'E884'</option>
+                  <option value="334">'E885'</option>
+                  <option value="511">'E886'</option>
+                  <option value="335">'E887'</option>
+                  <option value="512">'E888'</option>
+                  <option value="336">'E892'</option>
+                  <option value="514">'E894'</option>
+                  <option value="337">'E900'</option>
+                  <option value="515">'E901'</option>
+                  <option value="338">'E904'</option>
+                  <option value="516">'E905'</option>
+                  <option value="339">'E906'</option>
+                  <option value="517">'E912'</option>
+                  <option value="340">'E915'</option>
+                  <option value="518">'E916'</option>
+                  <option value="341">'E917'</option>
+                  <option value="519">'E919'</option>
+                  <option value="342">'E920'</option>
+                  <option value="521">'E922'</option>
+                  <option value="343">'E924'</option>
+                  <option value="522">'E927'</option>
+                  <option value="344">'E928'</option>
+                  <option value="523">'E929'</option>
+                  <option value="345">'E930'</option>
+                  <option value="524">'E931'</option>
+                  <option value="346">'E932'</option>
+                  <option value="525">'E933'</option>
+                  <option value="347">'E934'</option>
+                  <option value="527">'E935'</option>
+                  <option value="348">'E936'</option>
+                  <option value="528">'E937'</option>
+                  <option value="349">'E938'</option>
+                  <option value="529">'E939'</option>
+                  <option value="350">'E941'</option>
+                  <option value="53">'E942'</option>
+                  <option value="351">'E943'</option>
+                  <option value="530">'E944'</option>
+                  <option value="352">'E945'</option>
+                  <option value="531">'E946'</option>
+                  <option value="353">'E947'</option>
+                  <option value="532">'E949'</option>
+                  <option value="354">'E950'</option>
+                  <option value="533">'E955'</option>
+                  <option value="355">'E956'</option>
+                  <option value="534">'E965'</option>
+                  <option value="356">'E966'</option>
+                  <option value="535">'E980'</option>
+                  <option value="357">'E987'</option>
+                  <option value="536">'Not Specified'</option>
+                  <option value="358">'V01'</option>
+                  <option value="537">'V02'</option>
+                  <option value="359">'V03'</option>
+                  <option value="538">'V06'</option>
+                  <option value="360">'V07'</option>
+                  <option value="54">'V08'</option>
+                  <option value="361">'V09'</option>
+                  <option value="540">'V10'</option>
+                  <option value="362">'V11'</option>
+                  <option value="542">'V12'</option>
+                  <option value="363">'V13'</option>
+                  <option value="543">'V14'</option>
+                  <option value="364">'V15'</option>
+                  <option value="550">'V16'</option>
+                  <option value="365">'V17'</option>
+                  <option value="552">'V18'</option>
+                  <option value="366">'V22'</option>
+                  <option value="553">'V23'</option>
+                  <option value="367">'V25'</option>
+                  <option value="555">'V27'</option>
+                  <option value="368">'V42'</option>
+                  <option value="556">'V43'</option>
+                  <option value="369">'V44'</option>
+                  <option value="557">'V45'</option>
+                  <option value="370">'V46'</option>
+                  <option value="558">'V49'</option>
+                  <option value="371">'V53'</option>
+                  <option value="560">'V54'</option>
+                  <option value="372">'V55'</option>
+                  <option value="562">'V57'</option>
+                  <option value="373">'V58'</option>
+                  <option value="564">'V60'</option>
+                  <option value="374">'V61'</option>
+                  <option value="565">'V62'</option>
+                  <option value="375">'V63'</option>
+                  <option value="566">'V64'</option>
+                  <option value="376">'V65'</option>
+                  <option value="567">'V66'</option>
+                  <option value="377">'V70'</option>
+                  <option value="568">'V72'</option>
+                  <option value="378">'V85'</option>
+                  <option value="569">'V86'</option>
+                  </select>
+              </div>
+
+              <div class="form-group">
+                <label for="exampleInputEmail1" class="labeltag"
+                  >Number of Diagnosis</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  name="m22"
+                  placeholder="Type Here"
+                  required="required"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="exampleInputEmail1" class="labeltag"
+                  >Max No. of Glucose Serum</label
+                >
+                <select name="m23" id="m23" required="required" class="form-control">
+                  <option value="0">'>200'</option>
+  <option value="200">'>300'</option>
+  <option value="1">'None'</option>
+  <option value="300">'Norm'</option>
+  
+          </select>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1" class="labeltag"
+                  >A1Cresult</label
+                >
+                <select name="m24" id="m24" required="required" class="form-control">
+                  <option value="0">'>7'</option>
+                  <option value="7">'>8'</option>
+                  <option value="1">'None'</option>
+                  <option value="8">'Norm'</option>
+                  
+          </select>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1" class="labeltag"
+                  >Change</label
+                >
+                <select name="m25" id="m25" required="required" class="form-control">
+                  <option value="0">'No'</option>
+                  <option value="1">'Yes'</option>
+  
+          </select>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1" class="labeltag"
+                  >Diabetes Medications</label
+                >
+                <select name="m26" id="m26" required="required" class="form-control">
+                  <option value="0">'No'</option>
+                  <option value="1">'Yes'</option>
+  
+          </select>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1" class="labeltag"
+                  >No. of times Readmitted</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  name="m27"
+                  placeholder="Type Here"
+                  required="required"
+                />
+              </div>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block btn-large">
+            Predict
+          </button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

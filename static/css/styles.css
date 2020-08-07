@@ -1,0 +1,30 @@
+.header {
+  text-align: center;
+  font-size: 50px;
+  color: balck;
+  font-family: 'Libre Baskerville', serif;
+  margin-top: 50px;
+}
+
+.bar {
+  width: 50%;
+  margin: auto;
+  height: 20px;
+  background-color: rgb(41, 70, 124);
+  margin-top: 20px;
+  border-radius: 20px;
+}
+
+.result {
+  text-align: center;
+  margin-top: 80px;
+  font-size: 40px;
+  font-weight: 500px;
+}
+
+.resultoutput {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 20px;
+  font-weight: 500px;
+}
